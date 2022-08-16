@@ -1,0 +1,1 @@
+/home/kamee/.config/dwm/statusbar.sh
