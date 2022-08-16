@@ -23,9 +23,31 @@ Internet(){
 
 Battery(){
     BAT0=$(cat /sys/class/power_supply/BAT0/capacity)
-    BAT1=$(cat /sys/class/power_supply/BAT1/capacity)
-    echo "   $BAT0   $BAT1 |"
+    if   [[ $BAT0 -gt 80 ]]; then
+        BAT0="  $BAT0"
+    elif [[ $BAT0 -gt 60 ]]; then
+        BAT0="  $BAT0"
+    elif [[ $BAT0 -gt 40 ]]; then
+        BAT0="  $BAT0"
+    elif [[ $BAT0 -gt 20 ]]; then
+        BAT0="  $BAT0"
+    else
+        BAT0="  $BAT0"
+    fi
 
+    BAT1=$(cat /sys/class/power_supply/BAT1/capacity)
+    if   [[ $BAT1 -gt 80 ]]; then
+        BAT1="  $BAT1"
+    elif [[ $BAT0 -gt 60 ]]; then
+        BAT1="  $BAT1"
+    elif [[ $BAT0 -gt 40 ]]; then
+        BAT1="  $BAT1"
+    elif [[ $BAT0 -gt 20 ]]; then
+        BAT1="  $BAT1"
+    else
+        BAT1="  $BAT1"
+    fi
+    echo " $BAT0 $BAT1 |"
 }
 
 Memory(){
